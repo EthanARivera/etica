@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "DM Mono", monospace;
+  --color-coral: #ffb8a9;
+  --color-lavender: #d7d0f4;
+  --color-yellow: #f2d879;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Space Grotesk", sans-serif; background: #f5f2eb; }
+  button { cursor: pointer; }
+  ::selection { background: #ff604d; color: #fff; }
+  :focus-visible { outline: 2px solid #ff604d; outline-offset: 4px; }
+}
+
+@layer components {
+  .section-label { font-family: "DM Mono", monospace; font-size: 0.68rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+  .nav-link { position: relative; transition: color 180ms ease; }
+  .nav-link:hover { color: #ff604d; background: rgba(255, 96, 77, 0.08); }
+  .principle-card { min-height: 420px; border-radius: 1.5rem; padding: 2rem; transition: transform 240ms ease, box-shadow 240ms ease; }
+  .principle-card:hover { transform: translateY(-7px); box-shadow: 0 20px 35px rgba(25, 26, 25, 0.12); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-orbit { animation: float 7s ease-in-out infinite; }
+}
